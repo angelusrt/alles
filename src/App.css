@@ -1,38 +1,153 @@
-.App {
+* body {
+  background: -webkit-radial-gradient(#0f3e5d 15%, transparent 20%), -webkit-radial-gradient(#0f3e5d 15%, transparent 20%), #114a64;
+  background-position: 15px 60px, 15px 60px;
+  background-size: 15px 15px;
+}
+
+* body .App .Banner {
+  background: -webkit-radial-gradient(#114a64 15%, transparent 20%), -webkit-radial-gradient(#114a64 15%, transparent 20%), #0f3e5d;
+  background-position: 15px 60px, 15px 60px;
+  background-size: 15px 15px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* body .App .Banner-Header {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 4em;
+  color: #DCEFE6;
+  margin-bottom: 0.5vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* body .App .Banner-Header::-moz-selection {
+  background-color: #114a64;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+* body .App .Banner-Header::selection {
+  background-color: #114a64;
 }
 
-.App-link {
-  color: #61dafb;
+* body .App .Banner-Subheader {
+  display: block;
+  font-family: Roboto, sans-serif;
+  font-weight: normal;
+  font-size: 1.5em;
+  padding: 0 10vw;
+  color: #97c0ca;
 }
 
-@keyframes App-logo-spin {
+* body .App .Banner-Subheader::-moz-selection {
+  background-color: #114a64;
+}
+
+* body .App .Banner-Subheader::selection {
+  background-color: #114a64;
+}
+
+* body .App section {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(250px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: minmax(250px, 20vw);
+}
+
+* body .App section .Blocks {
+  overflow: auto;
+  border-radius: 10px;
+  background-color: #15687A;
+}
+
+* body .App section .Blocks-Header {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 1.75em;
+  color: #DCEFE6;
+  padding-bottom: 1.25vw;
+}
+
+* body .App section .Blocks-Header::-moz-selection {
+  background-color: #114a64;
+}
+
+* body .App section .Blocks-Header::selection {
+  background-color: #114a64;
+}
+
+* body .App section .Blocks-BodyText {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  line-height: 150%;
+  font-size: 1.3em;
+  color: #DCEFE6;
+}
+
+* body .App section .Blocks-BodyText::-moz-selection {
+  background-color: #114a64;
+}
+
+* body .App section .Blocks-BodyText::selection {
+  background-color: #114a64;
+}
+
+* body .App section .Blocks:hover {
+  -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
+          box-shadow: 0.75vw 0.75vw #0f3e5d;
+  -webkit-animation: boxshadow 0.5s;
+          animation: boxshadow 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@-webkit-keyframes boxshadow {
   from {
-    transform: rotate(0deg);
+    -webkit-box-shadow: 0 0 #0f3e5d;
+            box-shadow: 0 0 #0f3e5d;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
+            box-shadow: 0.75vw 0.75vw #0f3e5d;
   }
 }
+
+@keyframes boxshadow {
+  from {
+    -webkit-box-shadow: 0 0 #0f3e5d;
+            box-shadow: 0 0 #0f3e5d;
+  }
+  100% {
+    -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
+            box-shadow: 0.75vw 0.75vw #0f3e5d;
+  }
+}
+
+@media (max-width: 600px) {
+  .Banner {
+    padding: 25vh 0 25vh 0;
+  }
+  section {
+    gap: 4vw;
+    width: 86vw;
+    margin: 15vw auto 30vw auto;
+  }
+  section .Blocks {
+    padding: 5vw;
+  }
+}
+
+@media (min-width: 601px) {
+  .Banner {
+    padding: 30vh 0;
+  }
+  section {
+    gap: 2vw;
+    width: 86vw;
+    margin: 7.5vw auto 30vw auto;
+  }
+  section .Blocks {
+    padding: 2.5vw;
+  }
+}
+/*# sourceMappingURL=App.css.map */

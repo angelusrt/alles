@@ -1,0 +1,152 @@
+
+$primary-color: #114a64; //#15687A
+$secondary-color: #15687A; //#267884
+$tertiary-color: #DCEFE6; //#DCEFE6
+$quaternary-color: #0f3e5d;
+$quinary-color: #97c0ca; //#DCEFE6
+
+*{
+  body{
+    background:
+      -moz-radial-gradient($quaternary-color 15%, transparent 20%),
+      -moz-radial-gradient($quaternary-color 15%, transparent 20%),
+      $primary-color;
+    background:
+      -webkit-radial-gradient($quaternary-color 15%, transparent 20%),
+      -webkit-radial-gradient($quaternary-color 15%, transparent 20%),
+      $primary-color;
+    background-position: 15px 60px, 15px 60px;//1vw 4vw, 1vw 4vw
+    background-size: 15px 15px;//1vw 1vw
+    
+    .App{ 
+      .Banner{
+        background:
+          -moz-radial-gradient($primary-color 15%, transparent 20%),
+          -moz-radial-gradient($primary-color 15%, transparent 20%),
+          $quaternary-color;
+        background:
+          -webkit-radial-gradient($primary-color 15%, transparent 20%),
+          -webkit-radial-gradient($primary-color 15%, transparent 20%),
+          $quaternary-color;
+        background-position: 15px 60px, 15px 60px;//1vw 4vw, 1vw 4vw
+        background-size: 15px 15px;//1vw 1vw
+        
+        //padding: 30vh 0;
+        text-align: center;
+
+        &-Header{
+          display: block;
+          font-family: Montserrat, sans-serif;
+          font-weight: bold;
+          font-size: 4em;
+
+          color: $tertiary-color;
+
+          margin-bottom: 0.5vw;
+          &::selection{
+            background-color: $primary-color;
+          }
+        }
+        &-Subheader{
+          display: block;
+          font-family: Roboto, sans-serif;
+          font-weight: normal;
+          font-size: 1.5em;
+
+          padding: 0 10vw;
+
+          color: $quinary-color;
+          &::selection{
+            background-color: $primary-color;
+          }
+        }
+      }
+
+      section{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-auto-rows: minmax(250px, 20vw);
+        //gap: 2vw;
+        
+        //margin: 7.5vw auto 30vw auto;
+        //width: 86vw;
+
+        .Blocks{
+          overflow: auto;
+          border-radius: 10px;
+          //padding: 2.5vw;
+  
+          background-color: $secondary-color;
+  
+          &-Header{
+            display: block;
+            font-family: Montserrat, sans-serif;
+            font-weight: bold;
+            font-size: 1.75em;
+  
+            color: $tertiary-color;
+  
+            padding-bottom: 1.25vw;
+            &::selection{
+              background-color: $primary-color;
+            }
+          }
+  
+          &-BodyText{
+            font-family: Roboto, sans-serif;
+            font-weight: 300;
+            line-height: 150%;
+            font-size: 1.3em;
+  
+            color: $tertiary-color;
+            &::selection{
+              background-color: $primary-color;
+            }
+          }
+          
+          &:hover{
+            box-shadow: 0.75vw 0.75vw $quaternary-color;
+  
+            animation: boxshadow 0.5s;
+            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes boxshadow {
+  from {box-shadow: 0 0 $quaternary-color;}
+  100% {box-shadow: 0.75vw 0.75vw $quaternary-color;}
+}
+
+@media (max-width: 600px) {
+  .Banner{
+    padding: 25vh 0 25vh 0;
+  }
+  section{
+    gap: 4vw;
+    width: 86vw;
+    margin: 15vw auto 30vw auto;
+
+    .Blocks{
+      padding: 5vw;
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  .Banner{
+    padding: 30vh 0;
+  }
+  section{
+    gap: 2vw;
+    width: 86vw;
+    margin: 7.5vw auto 30vw auto;
+
+    .Blocks{
+      padding: 2.5vw;
+    }
+  }
+}
