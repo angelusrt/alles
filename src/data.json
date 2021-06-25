@@ -1,6 +1,12 @@
 {
   "a":[
     {
+      "tag": "Sociologia",
+      "blockType": {
+        "x": 2,
+        "y": 1
+      },
+      "isItList": false,
       "header": "Onomatopeia!",
       "bodyText": [
         "As relações na sociedade capitalista, se envolvem em torno das ",
@@ -9,12 +15,72 @@
       ]
     },
     {
+      "tag": "Filosofia",
+      "blockType": {
+        "x": 1,
+        "y": 1
+      },
+      "isItList": false,
       "header": "Ser ou não ser?",
       "bodyText": ["O sujeito, de fato, não passa de uma cápsula de percepções."]
+    },
+    {
+      "tag": "Matemática",
+      "blockType": {
+        "x": 2,
+        "y": 1
+      },
+      "isItList": false,
+      "header": "Simbolos lógicos",
+      "bodyText": [
+        "(x=2 ⇒ x2=4) ∧ ¬(x2=4 ⇒ x=2) | ",
+        "((n<4) ∧ (n>2)) ⇔ (n=3) | ",
+        "∀n∈ℕ : n2≥n | ",
+        "∃n∈ℕ : onde n é par | ",
+        "∃!n∈ℕ : n+5=2n"
+      ]
+    },
+    {
+      "tag": "Matemática",
+      "blockType": {
+        "x": 1,
+        "y": 2
+      },
+      "isItList": true,
+      "header": "Simbolos lógicos - Tabela",
+      "bodyText": [
+        "(⇒) Implica",
+        "(∧) E",
+        "(¬) Negador",
+        "(⇔) Se e apenas se",
+        "(∀n) Para todos n",
+        "(∃n) Existe pelo menos um n em",
+        "(∃!n) Existe apenas um n em"
+      ]
+    },
+    {
+      "tag": "Literatura",
+      "blockType": {
+        "x": 2,
+        "y": 2
+      },
+      "isItList": true,
+      "header": "Dom Casmurro",
+      "bodyText": [
+        "Alcunha - apelido dado a alguém",
+        "Alcova - Recuo de um cômodo á parede, com cama ou não",
+        "Vexar - Causar vergonha, vexame ou apressar"
+      ]
     }
   ],
   "b":[
     {
+      "tag": "Matemática",
+      "blockType": {
+        "x": 1,
+        "y": 1
+      },
+      "isItList": false,
       "data":{
         "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         "datasets": [

@@ -42,7 +42,9 @@ $quinary-color: #97c0ca; //#DCEFE6
 
           color: $tertiary-color;
 
+          margin: 0;
           margin-bottom: 0.5vw;
+
           &::selection{
             background-color: $primary-color;
           }
@@ -53,9 +55,11 @@ $quinary-color: #97c0ca; //#DCEFE6
           font-weight: normal;
           font-size: 1.5em;
 
+          margin: 0;
           padding: 0 10vw;
 
           color: $quinary-color;
+
           &::selection{
             background-color: $primary-color;
           }
@@ -66,50 +70,111 @@ $quinary-color: #97c0ca; //#DCEFE6
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-auto-rows: minmax(250px, 20vw);
-        //gap: 2vw;
-        
-        //margin: 7.5vw auto 30vw auto;
-        //width: 86vw;
+      }
 
-        .Blocks{
-          overflow: auto;
-          border-radius: 10px;
-          //padding: 2.5vw;
+      .Blocks{
+        overflow: auto;
+        border-radius: 10px;
+
+        background-color: $secondary-color;
+        
+        &-active{
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding: 2.5vw;
+          width: calc(100% - 5vw);
+          height: calc(100% - 5vw);
   
           background-color: $secondary-color;
-  
-          &-Header{
-            display: block;
-            font-family: Montserrat, sans-serif;
-            font-weight: bold;
-            font-size: 1.75em;
-  
-            color: $tertiary-color;
-  
-            padding-bottom: 1.25vw;
-            &::selection{
-              background-color: $primary-color;
+
+          .Button{
+            position: absolute;
+            bottom: 2.5vw;
+            border: 0.2vw $quinary-color solid;
+            border-radius: 10px;
+            width: 5vw;
+            height: 5vw;
+
+            background-color: $quinary-color;
+            
+            &-Icon{
+              margin: 1.25vw auto;
+              width: 5vw;
+              height: 5vw;
+
+              stroke-linejoin: round;
+              fill: $secondary-color;
+            }
+
+            &:hover{
+              box-shadow: 0.75vw 0.75vw $quaternary-color;
+
+              animation: boxshadow 0.5s;
+              animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+              background-color: $secondary-color;
+              
+              .Button-Icon{
+                fill: $quinary-color;
+              }
             }
           }
-  
-          &-BodyText{
-            font-family: Roboto, sans-serif;
-            font-weight: 300;
-            line-height: 150%;
-            font-size: 1.3em;
-  
-            color: $tertiary-color;
-            &::selection{
-              background-color: $primary-color;
-            }
+        }
+
+        &-Header{
+          display: block;
+          font-family: Montserrat, sans-serif;
+          font-weight: bold;
+          font-size: 1.75em;
+
+          color: $tertiary-color;
+
+          margin: 0;
+          padding-bottom: 1.25vw;
+
+          &::selection{
+            background-color: $primary-color;
           }
-          
-          &:hover{
-            box-shadow: 0.75vw 0.75vw $quaternary-color;
-  
-            animation: boxshadow 0.5s;
-            animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        &-BodyText{
+          font-family: Roboto, sans-serif;
+          font-weight: 300;
+          line-height: 150%;
+          font-size: 1.3em;
+
+          margin: 0;
+
+          color: $tertiary-color;
+
+          &::selection{
+            background-color: $primary-color;
           }
+        }
+        
+        &-ListText{
+          display: block;
+          font-family: Roboto, sans-serif;
+          font-weight: 300;
+          line-height: 150%;
+          font-size: 1.3em;
+
+          color: $tertiary-color;
+
+          margin: 0;
+          margin-bottom: 1vw;
+
+          &::selection{
+            background-color: $primary-color;
+          }
+        }
+
+        &:hover{
+          box-shadow: 0.75vw 0.75vw $quaternary-color;
+
+          animation: boxshadow 0.5s;
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
       }
     }
@@ -125,14 +190,15 @@ $quinary-color: #97c0ca; //#DCEFE6
   .Banner{
     padding: 25vh 0 25vh 0;
   }
+  
   section{
     gap: 4vw;
     width: 86vw;
     margin: 15vw auto 30vw auto;
-
-    .Blocks{
-      padding: 5vw;
-    }
+  }
+  
+  .Blocks{
+    padding: 5vw;
   }
 }
 
@@ -140,13 +206,14 @@ $quinary-color: #97c0ca; //#DCEFE6
   .Banner{
     padding: 30vh 0;
   }
+  
   section{
     gap: 2vw;
     width: 86vw;
     margin: 7.5vw auto 30vw auto;
+  }
 
-    .Blocks{
-      padding: 2.5vw;
-    }
+  .Blocks{
+    padding: 2.5vw;
   }
 }

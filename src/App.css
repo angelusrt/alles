@@ -17,6 +17,7 @@
   font-weight: bold;
   font-size: 4em;
   color: #DCEFE6;
+  margin: 0;
   margin-bottom: 0.5vw;
 }
 
@@ -33,6 +34,7 @@
   font-family: Roboto, sans-serif;
   font-weight: normal;
   font-size: 1.5em;
+  margin: 0;
   padding: 0 10vw;
   color: #97c0ca;
 }
@@ -53,46 +55,109 @@
   grid-auto-rows: minmax(250px, 20vw);
 }
 
-* body .App section .Blocks {
+* body .App .Blocks {
   overflow: auto;
   border-radius: 10px;
   background-color: #15687A;
 }
 
-* body .App section .Blocks-Header {
+* body .App .Blocks-active {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2.5vw;
+  width: calc(100% - 5vw);
+  height: calc(100% - 5vw);
+  background-color: #15687A;
+}
+
+* body .App .Blocks-active .Button {
+  position: absolute;
+  bottom: 2.5vw;
+  border: 0.2vw #97c0ca solid;
+  border-radius: 10px;
+  width: 5vw;
+  height: 5vw;
+  background-color: #97c0ca;
+}
+
+* body .App .Blocks-active .Button-Icon {
+  margin: 1.25vw auto;
+  width: 5vw;
+  height: 5vw;
+  stroke-linejoin: round;
+  fill: #15687A;
+}
+
+* body .App .Blocks-active .Button:hover {
+  -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
+          box-shadow: 0.75vw 0.75vw #0f3e5d;
+  -webkit-animation: boxshadow 0.5s;
+          animation: boxshadow 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: #15687A;
+}
+
+* body .App .Blocks-active .Button:hover .Button-Icon {
+  fill: #97c0ca;
+}
+
+* body .App .Blocks-Header {
   display: block;
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   font-size: 1.75em;
   color: #DCEFE6;
+  margin: 0;
   padding-bottom: 1.25vw;
 }
 
-* body .App section .Blocks-Header::-moz-selection {
+* body .App .Blocks-Header::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App section .Blocks-Header::selection {
+* body .App .Blocks-Header::selection {
   background-color: #114a64;
 }
 
-* body .App section .Blocks-BodyText {
+* body .App .Blocks-BodyText {
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  line-height: 150%;
+  font-size: 1.3em;
+  margin: 0;
+  color: #DCEFE6;
+}
+
+* body .App .Blocks-BodyText::-moz-selection {
+  background-color: #114a64;
+}
+
+* body .App .Blocks-BodyText::selection {
+  background-color: #114a64;
+}
+
+* body .App .Blocks-ListText {
+  display: block;
   font-family: Roboto, sans-serif;
   font-weight: 300;
   line-height: 150%;
   font-size: 1.3em;
   color: #DCEFE6;
+  margin: 0;
+  margin-bottom: 1vw;
 }
 
-* body .App section .Blocks-BodyText::-moz-selection {
+* body .App .Blocks-ListText::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App section .Blocks-BodyText::selection {
+* body .App .Blocks-ListText::selection {
   background-color: #114a64;
 }
 
-* body .App section .Blocks:hover {
+* body .App .Blocks:hover {
   -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
           box-shadow: 0.75vw 0.75vw #0f3e5d;
   -webkit-animation: boxshadow 0.5s;
@@ -132,7 +197,7 @@
     width: 86vw;
     margin: 15vw auto 30vw auto;
   }
-  section .Blocks {
+  .Blocks {
     padding: 5vw;
   }
 }
@@ -146,7 +211,7 @@
     width: 86vw;
     margin: 7.5vw auto 30vw auto;
   }
-  section .Blocks {
+  .Blocks {
     padding: 2.5vw;
   }
 }
