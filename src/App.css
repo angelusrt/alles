@@ -4,14 +4,14 @@
   background-size: 15px 15px;
 }
 
-* body .App .Banner {
+* body .App .banner {
   background: -webkit-radial-gradient(#114a64 15%, transparent 20%), -webkit-radial-gradient(#114a64 15%, transparent 20%), #0f3e5d;
   background-position: 15px 60px, 15px 60px;
   background-size: 15px 15px;
   text-align: center;
 }
 
-* body .App .Banner-Header {
+* body .App .banner--header {
   display: block;
   font-family: Montserrat, sans-serif;
   font-weight: bold;
@@ -21,30 +21,71 @@
   margin-bottom: 0.5vw;
 }
 
-* body .App .Banner-Header::-moz-selection {
+* body .App .banner--header::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App .Banner-Header::selection {
+* body .App .banner--header::selection {
   background-color: #114a64;
 }
 
-* body .App .Banner-Subheader {
+* body .App .banner--subheader {
   display: block;
   font-family: Roboto, sans-serif;
   font-weight: normal;
   font-size: 1.5em;
-  margin: 0;
   padding: 0 10vw;
   color: #97c0ca;
 }
 
-* body .App .Banner-Subheader::-moz-selection {
+* body .App .banner--subheader::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App .Banner-Subheader::selection {
+* body .App .banner--subheader::selection {
   background-color: #114a64;
+}
+
+* body .App .banner--buttons {
+  margin: auto 10vw;
+  width: 80vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* body .App .banner--buttons .button {
+  border-radius: 10px;
+}
+
+* body .App .banner--buttons .button-inactive {
+  background-color: #15687A;
+}
+
+* body .App .banner--buttons .button-active {
+  background-color: #114a64;
+  border-color: #97c0ca;
+}
+
+* body .App .banner--buttons .button--text {
+  padding: 0.125vw 1vw;
+  color: #97c0ca;
+}
+
+* body .App .banner--buttons .button:hover {
+  -webkit-box-shadow: 0.75vw 0.75vw #114a64;
+          box-shadow: 0.75vw 0.75vw #114a64;
+  -webkit-animation: boxshadow2 0.5s;
+          animation: boxshadow2 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: #15687A;
 }
 
 * body .App section {
@@ -55,41 +96,25 @@
   grid-auto-rows: minmax(250px, 20vw);
 }
 
-* body .App .Blocks {
-  overflow: auto;
-  border-radius: 10px;
-  background-color: #15687A;
-}
-
-* body .App .Blocks-active {
+* body .App .page {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 2.5vw;
-  width: calc(100% - 5vw);
-  height: calc(100% - 5vw);
   background-color: #15687A;
 }
 
-* body .App .Blocks-active .Button {
+* body .App .page .button {
   position: absolute;
-  bottom: 2.5vw;
-  border: 0.2vw #97c0ca solid;
   border-radius: 10px;
-  width: 5vw;
-  height: 5vw;
   background-color: #97c0ca;
 }
 
-* body .App .Blocks-active .Button-Icon {
-  margin: 1.25vw auto;
-  width: 5vw;
-  height: 5vw;
+* body .App .page .button--icon {
   stroke-linejoin: round;
   fill: #15687A;
 }
 
-* body .App .Blocks-active .Button:hover {
+* body .App .page .button:hover {
   -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
           box-shadow: 0.75vw 0.75vw #0f3e5d;
   -webkit-animation: boxshadow 0.5s;
@@ -99,29 +124,59 @@
   background-color: #15687A;
 }
 
-* body .App .Blocks-active .Button:hover .Button-Icon {
+* body .App .page .button:hover .button--icon {
   fill: #97c0ca;
 }
 
-* body .App .Blocks-Header {
+* body .App .blocks {
+  background-color: #15687A;
+}
+
+* body .App .blocks-inactive {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+* body .App .blocks-inactive:hover {
+  -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
+          box-shadow: 0.75vw 0.75vw #0f3e5d;
+  -webkit-animation: boxshadow 0.5s;
+          animation: boxshadow 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* body .App .blocks-active {
+  overflow: auto;
+  height: 100vh;
+}
+
+* body .App .blocks--content {
+  padding-bottom: 20vw;
+}
+
+* body .App .blocks--content-graph {
+  height: 60vh;
+}
+
+* body .App .blocks--content--header {
   display: block;
   font-family: Montserrat, sans-serif;
   font-weight: bold;
   font-size: 1.75em;
   color: #DCEFE6;
   margin: 0;
-  padding-bottom: 1.25vw;
 }
 
-* body .App .Blocks-Header::-moz-selection {
+* body .App .blocks--content--header::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App .Blocks-Header::selection {
+* body .App .blocks--content--header::selection {
   background-color: #114a64;
 }
 
-* body .App .Blocks-BodyText {
+* body .App .blocks--content--bodytext {
   font-family: Roboto, sans-serif;
   font-weight: 300;
   line-height: 150%;
@@ -130,15 +185,15 @@
   color: #DCEFE6;
 }
 
-* body .App .Blocks-BodyText::-moz-selection {
+* body .App .blocks--content--bodytext::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App .Blocks-BodyText::selection {
+* body .App .blocks--content--bodytext::selection {
   background-color: #114a64;
 }
 
-* body .App .Blocks-ListText {
+* body .App .blocks--content--listtext {
   display: block;
   font-family: Roboto, sans-serif;
   font-weight: 300;
@@ -149,21 +204,12 @@
   margin-bottom: 1vw;
 }
 
-* body .App .Blocks-ListText::-moz-selection {
+* body .App .blocks--content--listtext::-moz-selection {
   background-color: #114a64;
 }
 
-* body .App .Blocks-ListText::selection {
+* body .App .blocks--content--listtext::selection {
   background-color: #114a64;
-}
-
-* body .App .Blocks:hover {
-  -webkit-box-shadow: 0.75vw 0.75vw #0f3e5d;
-          box-shadow: 0.75vw 0.75vw #0f3e5d;
-  -webkit-animation: boxshadow 0.5s;
-          animation: boxshadow 0.5s;
-  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 @-webkit-keyframes boxshadow {
@@ -188,31 +234,127 @@
   }
 }
 
+@-webkit-keyframes boxshadow2 {
+  from {
+    -webkit-box-shadow: 0 0 #114a64;
+            box-shadow: 0 0 #114a64;
+  }
+  100% {
+    -webkit-box-shadow: 0.75vw 0.75vw #114a64;
+            box-shadow: 0.75vw 0.75vw #114a64;
+  }
+}
+
+@keyframes boxshadow2 {
+  from {
+    -webkit-box-shadow: 0 0 #114a64;
+            box-shadow: 0 0 #114a64;
+  }
+  100% {
+    -webkit-box-shadow: 0.75vw 0.75vw #114a64;
+            box-shadow: 0.75vw 0.75vw #114a64;
+  }
+}
+
 @media (max-width: 600px) {
-  .Banner {
+  .banner {
     padding: 25vh 0 25vh 0;
+    padding: 25vh 0 5vh 0;
+  }
+  .banner--subheader {
+    margin: 0;
+    margin-bottom: 15vh;
+  }
+  .banner--buttons .button {
+    margin-right: 5vw;
+  }
+  .banner--buttons .button-active {
+    border: 0.25vw #97c0ca solid;
   }
   section {
     gap: 4vw;
     width: 86vw;
     margin: 15vw auto 30vw auto;
   }
-  .Blocks {
+  .page {
+    width: 100vw;
+    height: 100vh;
+  }
+  .page .button {
+    left: 5vw;
+    bottom: 5vw;
+    border: 0.4vw #97c0ca solid;
+    width: 10vw;
+    height: 10vw;
+  }
+  .page .button--icon {
+    margin: 2.5vw auto;
+    width: 10vw;
+    height: 10vw;
+  }
+  .blocks {
+    padding-bottom: 0;
+  }
+  .blocks-inactive {
     padding: 5vw;
+  }
+  .blocks--content {
+    padding: 5vw;
+  }
+  .blocks--content--header {
+    padding-bottom: 5vw;
   }
 }
 
 @media (min-width: 601px) {
-  .Banner {
-    padding: 30vh 0;
+  .banner {
+    padding: 30vh 0 20vh 0;
+  }
+  .banner--subheader {
+    margin: 0;
+    margin-bottom: 5vh;
+  }
+  .banner--buttons {
+    overflow: auto;
+  }
+  .banner--buttons .button {
+    margin-right: 1.25vw;
+  }
+  .banner--buttons .button-active {
+    border: 0.125vw #97c0ca solid;
   }
   section {
     gap: 2vw;
     width: 86vw;
     margin: 7.5vw auto 30vw auto;
   }
-  .Blocks {
+  .page {
+    width: 100vw;
+    height: 100vh;
+  }
+  .page .button {
+    left: 2.5vw;
+    bottom: 2.5vw;
+    border: 0.2vw #97c0ca solid;
+    width: 5vw;
+    height: 5vw;
+  }
+  .page .button--icon {
+    margin: 1.25vw auto;
+    width: 5vw;
+    height: 5vw;
+  }
+  .blocks {
+    padding-bottom: 0;
+  }
+  .blocks-inactive {
     padding: 2.5vw;
+  }
+  .blocks--content {
+    padding: 5vw 11.25vw;
+  }
+  .blocks--content--header {
+    padding-bottom: 1.25vw;
   }
 }
 /*# sourceMappingURL=App.css.map */

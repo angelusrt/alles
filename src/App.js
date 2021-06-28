@@ -7,10 +7,10 @@ import './App.css'
 function Blocks(props) {
   return (
     <div 
-      className="Blocks" 
+      className="blocks blocks-inactive" 
       onClick={() => {
         props.setActive()
-        props.setBlock({block: props.children, style: props.style})
+        props.setBlock({block: props.children, style: props.style, isItGraph: props.isItGraph})
         props.setScroll(window.scrollY)
       }} 
       style={props.style}
@@ -32,10 +32,13 @@ function Section(props) {
   return(
     <section>
       {
-        data.a.map((data, key) => (
+        data.a
+        .filter(data => props.tag !== "" ? data.tag === props.tag : data.tag)
+        .map((data, key) => (
           <Blocks 
             key={`a_${key}`}
             active={props.active}
+            isItGraph={false}
 
             setActive={props.setActive}
             setBlock={props.setBlock}
@@ -52,22 +55,25 @@ function Section(props) {
                 `auto / span ${data.blockType.x + data.blockType.y - 1}`
             }}
           >
-            <p className="Blocks-Header">{data.header}</p>
+            <p className="blocks--content--header">{data.header}</p>
             {
               data.isItList ?
               data.bodyText.map((text, key) => (
-                <p key={key} className="Blocks-ListText">{text}</p>
+                <p key={key} className="blocks--content--listtext">{text}</p>
               )) :
-              <p className="Blocks-BodyText">{data.bodyText}</p>
+              <p className="blocks--content--bodytext">{data.bodyText}</p>
             }
           </Blocks>
         ))
       }
       {
-        data.b.map((data, key) => (
+        data.b
+        .filter(data => props.tag !== "" ? data.tag === props.tag : data.tag)
+        .map((data, key) => (
           <Blocks 
-          key={`b_${key}`}
+            key={`b_${key}`}
             active={props.active}
+            isItGraph={true}
             
             setActive={props.setActive}
             setBlock={props.setBlock}
@@ -85,6 +91,7 @@ function Section(props) {
             }}
           >
             <Bar 
+              className="blocks--content--graph"
               data={data.data} 
               options={{devicePixelRatio: window.devicePixelRatio * 2, ...data.options}} 
               width="100%" 
@@ -97,13 +104,39 @@ function Section(props) {
   )
 }
 
-function Banner() {
+function Banner(props) {
   return(
-    <div className="Banner">
-      <p className="Banner-Header">Alles</p>
-      <p className="Banner-Subheader">
+    <div className="banner">
+      <p className="banner--header">Alles</p>
+      <p className="banner--subheader">
         O estado proto-fenomenal move as sensações da realidade percebida.
       </p>
+      <div className="banner--buttons">
+        <div
+          className={props.tag === "Mat" ? "button button-active" : "button button-inactive"}
+          onClick={() => props.setTag(props.tag !== "Mat" ? "Mat" : "")}
+        >
+          <p className="button--text">Matemática</p>
+        </div>
+        <div
+          className={props.tag === "Lit" ? "button button-active" : "button button-inactive"}
+          onClick={() => props.setTag(props.tag !== "Lit" ? "Lit" : "")}
+        >
+          <p className="button--text">Literatura</p>
+        </div>
+        <div
+          className={props.tag === "Filo" ? "button button-active" : "button button-inactive"}
+          onClick={() => props.setTag(props.tag !== "Filo" ? "Filo" : "")}
+        >
+          <p className="button--text">Filosofia</p>
+        </div>
+        <div
+          className={props.tag === "Socio" ? "button button-active" : "button button-inactive"}
+          onClick={() => props.setTag(props.tag !== "Socio" ? "Socio" : "")}
+        >
+          <p className="button--text">Sociologia</p>
+        </div>
+      </div>
     </div>
   )
 }
@@ -112,6 +145,7 @@ function App() {
   const[active, setActive] = useState(false)
   const[block, setBlock] = useState(null)
   const[scroll, setScroll] = useState(null)
+  const[tag, setTag] = useState("")
 
   useEffect(() => {
     if(!active){
@@ -119,14 +153,21 @@ function App() {
     }
   },[active, scroll])
 
+  //console.log(tag)
   return (
     <div className="App">
       {
         !active ?
         <Fragment>
-          <Banner/>
+          <Banner
+            tag={tag}
+
+            setTag={tag => setTag(tag)}
+          />
+
           <Section
             active={active}
+            tag={tag}
 
             setActive={() => setActive(!active)}
             setBlock={block => setBlock(block)}
@@ -134,16 +175,25 @@ function App() {
           />
         </Fragment> :
         <div 
-          className="Blocks-active"  
+          className="page"
           style={block.style}
         > 
-          {block.block}
+          <div className="blocks blocks-active">
+            <div className={
+              block.isItGraph ? 
+              "blocks--content blocks--content-graph" : 
+              "blocks--content"
+            }>
+              {block.block}
+            </div>
+          </div>
+
           <div
-            className="Button"
+            className="button"
             onClick={() => setActive(!active)}
           >
             <svg
-              className="Button-Icon"
+              className="button--icon"
               viewBox="0 0 300 300"
             >
               <path 
